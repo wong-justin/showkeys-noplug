@@ -1,8 +1,8 @@
-# Showkeys pluginless fork
+# Showkeys no-install fork
 
-Neovim keycast script for TUI demos, as an alternative to [vhs](https://github.com/charmbracelet/vhs) or [asciinema](https://github.com/asciinema/asciinema).
+Neovim keycast script for TUI demos, almost an alternative to [vhs](https://github.com/charmbracelet/vhs) or [asciinema](https://github.com/asciinema/asciinema).
 
-Heavily based on [nvzone/showkeys](https://github.com/nvzone/showkeys).
+Many thanks to the original [nvzone/showkeys](https://github.com/nvzone/showkeys).
 
 ## Install
 
@@ -10,7 +10,7 @@ Copy/paste the shell script nvim lua command, and modify as needed.
 
 ## Usage
 
-e.g.
+Run e.g.
 
 ``` sh
 nvim -c 'lua '\
@@ -25,6 +25,15 @@ nvim -c 'lua '\
 'T("o", 200)'\
 'T(" world<CR>", 200)'
 ```
+
+and record the terminal window with e.g. [obs](https://obsproject.com/) or another piece of screen recording software.
+
+## Motivation 
+
+- improve TUI demos by showing keypresses
+- prefer copy-pasting rather than dependency installations if possible
+- avoid hassle of nvim plugin management
+- use existing nvim capabilities rather than installing more software
 
 ## Support the original author
 
