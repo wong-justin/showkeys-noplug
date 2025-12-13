@@ -1,16 +1,12 @@
 # Showkeys no-install fork
 
-Neovim keycast script for TUI demos, almost an alternative to [vhs](https://github.com/charmbracelet/vhs) or [asciinema](https://github.com/asciinema/asciinema).
+Neovim keycast script for TUI demos, a near-alternative to [vhs](https://github.com/charmbracelet/vhs) or [asciinema](https://github.com/asciinema/asciinema).
 
 Many thanks to the original [nvzone/showkeys](https://github.com/nvzone/showkeys).
 
-## Install
-
-Copy/paste the shell script nvim lua command, and modify as needed.
-
 ## Usage
 
-Run e.g.
+Copy/paste this shell script, modifying as needed (especially the final part):
 
 ``` sh
 nvim -c 'lua '\
@@ -25,8 +21,6 @@ nvim -c 'lua '\
 'ns = vim.api.nvim_create_namespace("showkeysforknamespace") '\
 'vim.api.nvim_set_hl(0, "PastHighlight", { default = true, link = "Visual" }) '\
 'vim.api.nvim_set_hl(0, "CurrentHighlight", { default = true, link = "pmenusel" }) '\
-''\
-''\
 'vim.on_key(function(_, char) '\
 '  if hidden then '\
 '    if window_id ~= nil then vim.api.nvim_win_close(window_id, true); end '\
@@ -55,8 +49,6 @@ nvim -c 'lua '\
 '    last_pos = last_pos + 1 + this_width + 2 '\
 '  end '\
 'end) '\
-''\
-''\
 'time = 0 '\
 'T = function(inputs, delay_ms) vim.fn.timer_start(time + delay_ms, function() vim.api.nvim_input(inputs) end) time = time + delay_ms; end '\
 'vim.cmd("terminal") '\
@@ -71,7 +63,7 @@ nvim -c 'lua '\
 
 ```
 
-and record the terminal window with e.g. [obs](https://obsproject.com/) or another piece of screen recording software.
+Record the terminal window with [obs](https://obsproject.com/) or another piece of screen recording software.
 
 ## Motivation 
 
@@ -82,7 +74,7 @@ and record the terminal window with e.g. [obs](https://obsproject.com/) or anoth
 
 ## Support the original author
 
-I don't have sponsorships or anything, but [nvzone](https://github.com/nvzone) does:
+I don't have sponsorships, but [nvzone](https://github.com/nvzone) does:
 
 [![kofi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/siduck)
 [![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/siduck13)
