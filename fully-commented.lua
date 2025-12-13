@@ -4,12 +4,14 @@
 -- tested on nvim 0.11.5
 -- i'm new to lua and nvim apis, so this code is likely unidiomatic and clunky. suggestions welcome.
 --
--- todo: death_timer for popup window
+-- todo: death_timer for popup window (i like 0.75 secs)
 -- 
 -- todo: try incorporating obs scripting, something like:
 -- obs-cli call StartRecordl; ... obs-cli call StopRecord
 -- 
 -- and todo: try testing in multiple nvim versions
+--
+-- also consider: disabling default config with nvim -u NORC, for reproducibility
 
 -- main ingredients:
 -- on timer nvim_input() to automate sending of keys 
@@ -29,7 +31,8 @@ window_config = {
 	col=0,
 	row=1,
 	style="minimal", -- undecorated buffer
-	border="solid"
+	border="solid"   -- see also bold, double, none, rounded, shadow, solid, 
+	                 -- or [""] or ["", "", "", ""] or ["", "", "", "", "", "", "", ""]
 }
 window_id = nil
 hidden = true
