@@ -1,38 +1,34 @@
-# Showkeys
+# Showkeys pluginless fork
 
-Eye-candy keys screencaster for Neovim
+Neovim keycast script for TUI demos, as an alternative to [vhs](https://github.com/charmbracelet/vhs) or [asciinema](https://github.com/asciinema/asciinema).
 
-https://github.com/user-attachments/assets/a85d6546-b457-49b6-aca6-c9b0410d3512
-  
+Heavily based on [nvzone/showkeys](https://github.com/nvzone/showkeys).
+
 ## Install
 
-```lua
-{ "nvzone/showkeys", cmd = "ShowkeysToggle" }
-```
+Copy/paste the shell script nvim lua command, and modify as needed.
 
 ## Usage
 
-`ShowkeysToggle`
+e.g.
 
-## Config
-
-Check the [config table here](https://github.com/NvChad/showkeys/blob/main/lua/showkeys/state.lua#L7)
-
-```lua
-{
-  "nvzone/showkeys",
-  cmd = "ShowkeysToggle",
-  opts = {
-    timeout = 1,
-    maxkeys = 5,
-    -- more opts
-  }
-}
+``` sh
+nvim -c 'lua '\
+...
+'vim.cmd("terminal")'\
+''\
+'T("iecho ", 0)'\
+'T("h", 200)'\
+'T("e", 200)'\
+'T("l", 200)'\
+'T("l", 200)'\
+'T("o", 200)'\
+'T(" world<CR>", 200)'
 ```
 
-## :gift_heart: Support
+## Support the original author
 
-If you like NvChad or its plugins and would like to support it via donation
+I don't have sponsorships or anything, but [nvzone](https://github.com/nvzone) does:
 
 [![kofi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/siduck)
 [![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/siduck13)
