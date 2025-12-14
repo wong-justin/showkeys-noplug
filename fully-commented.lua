@@ -1,7 +1,9 @@
 #!/usr/bin/env -S nvim -S
 
 -- crudely adapted from https://github.com/nvzone/showkeys in all its GPL glory
--- tested on nvim 0.11.5
+-- tested with nvim 0.11.5 and ghostty 1.2.3. 
+-- i think most recent nvim versions and any modern-ish terminal with decent color support should work.
+--
 -- i'm new to lua and nvim apis, so this code is likely unidiomatic and clunky. suggestions welcome.
 --
 -- todo: death_timer for popup window (i like 0.75 secs)
@@ -9,7 +11,7 @@
 -- todo: try incorporating obs scripting, something like:
 -- obs-cli call StartRecordl; ... obs-cli call StopRecord
 -- 
--- and todo: try testing in multiple nvim versions
+-- todo: try testing in multiple nvim versions
 --
 -- also consider: disabling default config with nvim -u NORC, for reproducibility
 
@@ -19,7 +21,7 @@
 -- vim.api.nvim_open_win() creates a popup dialog
 
 -- init global state and config:
-recent_keypresses={} -- treat as a queue, append(newest, end) and remove(oldest, beginning)
+recent_keypresses={} -- treat as a queue: append(newest, end) and remove(oldest, beginning)
 max_recent_keypresses=3
 msg = " "
 width = vim.fn.strdisplaywidth(msg)
