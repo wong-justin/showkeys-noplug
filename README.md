@@ -1,8 +1,8 @@
 # Showkeys no-install fork
 
-Keycast script for TUI demos inside Neovim. 
+Keycast script for CLI/TUI demos, using Neovim. 
 
-A near-alternative to [vhs](https://github.com/charmbracelet/vhs) or [asciinema](https://github.com/asciinema/asciinema).
+Like [vhs](https://github.com/charmbracelet/vhs) or [asciinema](https://github.com/asciinema/asciinema) but without the video recording.
 
 Many thanks to the original [nvzone/showkeys](https://github.com/nvzone/showkeys).
 
@@ -74,14 +74,9 @@ Record the terminal window with [obs](https://obsproject.com/) or another piece 
 
 - improve TUI demos by showing keypresses
 - avoid hassle of nvim plugin management
+- avoid installing anything
 - I like copy-pasteable snippets
-- nvim can do anything
 
 ## Support the original author
 
-I'll keep the donation links from [nvzone](https://github.com/nvzone):
-
-- [Kofi](https://ko-fi.com/siduck)
-- [PayPal](https://paypal.me/siduck13)
-- [Buy me a coffee](https://www.buymeacoffee.com/siduck)
-- [Patreon](https://www.patreon.com/siduck)
+Here are the original donation links from [nvzone](https://github.com/nvzone): [Kofi](https://ko-fi.com/siduck), [PayPal](https://paypal.me/siduck13), [Buy me a coffee](https://www.buymeacoffee.com/siduck), and [Patreon](https://www.patreon.com/siduck).
