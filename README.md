@@ -4,6 +4,8 @@ Neovim keycast script for TUI demos, a near-alternative to [vhs](https://github.
 
 Many thanks to the original [nvzone/showkeys](https://github.com/nvzone/showkeys).
 
+<img width="900" height="687" alt="hello world terminal screenshot, with last three keypresses shown in cute lil boxes" src="https://github.com/user-attachments/assets/401b024e-9b0a-4be2-864e-4ebcae944b3b" />
+
 ## Usage
 
 Copy/paste this shell script, modifying as needed (especially the final part):
