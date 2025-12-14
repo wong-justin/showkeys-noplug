@@ -55,15 +55,16 @@ vim.api.nvim_set_hl(0, "CurrentHighlight", { default = true, link = "pmenusel" }
 -- vim.api.nvim_set_hl(0, "SpellCap", {})
 -- vim.api.nvim_set_hl(0, "SpellLocal", {})
 
-vim.on_key(function(_, char)
-
-  if hidden then
-    -- close window and reset state
+close_window_and_reset = function()
     if window_id ~= nil then vim.api.nvim_win_close(window_id, true); end
     window_id = nil
     recent_keypresses = {}
-    return
-  end
+    hidden = true
+end
+
+vim.on_key(function(_, char)
+
+  if hidden then close_window_and_reset(); return; end
 
   if window_id == nil then window_id = vim.api.nvim_open_win(buf, false, window_config); end
   vim.wo[window_id].winhl = "FloatBorder:Normal,Normal:Normal" -- make window bgcolor match normal bgcolor
@@ -107,7 +108,7 @@ end)
 accumulated_time = 0
 Type = function(inputs, delay_ms) vim.fn.timer_start(accumulated_time + delay_ms, function() vim.api.nvim_input(inputs) end) accumulated_time = accumulated_time + delay_ms; end
 -- e.g. Hide() keycast when typing a boring command
-Hidekeys = function() vim.fn.timer_start(accumulated_time, function() hidden = true; end) end
+Hidekeys = function() vim.fn.timer_start(accumulated_time, close_window_and_reset) end
 -- e.g. Show() keycast when the TUI is active
 Showkeys = function() vim.fn.timer_start(accumulated_time, function() hidden = false; end) end
 vim.cmd("terminal")
