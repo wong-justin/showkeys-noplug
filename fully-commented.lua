@@ -8,9 +8,6 @@
 --
 -- todo: death_timer for popup window (i like 0.75 secs)
 -- 
--- todo: try incorporating obs scripting, something like:
--- obs-cli call StartRecordl; ... obs-cli call StopRecord
--- 
 -- todo: try testing in multiple nvim versions
 --
 -- also consider: disabling default config with nvim -u NORC, for reproducibility
@@ -46,16 +43,15 @@ vim.api.nvim_set_hl(0, "CurrentHighlight", { default = true, link = "pmenusel" }
 -- trying to address a difficult-to-reproduce oddity:
 -- sometimes, the popup window will flash red
 -- this combination of highlight disablings seems to prevent that
---
--- normal = vim.api.nvim_get_hl(0, { name = "Normal" });
--- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", fg=normal.fg })
--- vim.api.nvim_set_hl(0, "Error", {})
--- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", {})
--- vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", {})
--- vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", {})
--- vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", {})
--- vim.api.nvim_set_hl(0, "SpellCap", {})
--- vim.api.nvim_set_hl(0, "SpellLocal", {})
+normal = vim.api.nvim_get_hl(0, { name = "Normal" });
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", fg=normal.fg })
+vim.api.nvim_set_hl(0, "Error", {})
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", {})
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", {})
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", {})
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", {})
+vim.api.nvim_set_hl(0, "SpellCap", {})
+vim.api.nvim_set_hl(0, "SpellLocal", {})
 
 close_window_and_reset = function()
     if window_id ~= nil then vim.api.nvim_win_close(window_id, true); end
@@ -84,12 +80,11 @@ vim.on_key(function(_, char)
 	  ["<M>"] = "Alt",
 	  ["<C>"] = "Ctrl", -- TODO: fix Ctrl keypresses not being parsed
   }
-  msg = char
   msg = special_keys[key] or key
   table.insert(recent_keypresses, msg)
   if #recent_keypresses > max_recent_keypresses then table.remove(recent_keypresses, 1) end
-  -- generous display padding
-  display_str = "  " .. table.concat(recent_keypresses, "   ") .. "  "
+  
+  display_str = "  " .. table.concat(recent_keypresses, "   ") .. "  " -- generous display padding
   width = vim.fn.strdisplaywidth(display_str)
   window_config.width = width
   window_config.col = math.floor((vim.o.columns - width) / 2) -- centered
